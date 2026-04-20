@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUET Assignment Cover Page Generator</title>
+    <link rel="icon" type="image/png" href="KUET.png">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Form Container */
+        .form-container {
+            width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .form-container h2 { margin-top: 0; color: #333; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
+        }
+
+        .print-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .print-btn:hover { background-color: #218838; }
+
+        /* A4 Page Container */
+        .page-container {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            padding: 14mm;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Cover Page Specific Styles */
+        .header { text-align: center; line-height: 1.2; margin-bottom: 30px; }
+        .header .black-text { font-size: 34px; color: black; }
+        .header .green-text { font-size: 34px; color: #228B22; }
+        
+        .logo-container { text-align: center; margin-bottom: 30px; }
+        .logo-container img { width: 120px; height: auto; }
+
+        .info-section { font-size: 18px; line-height: 1.8; margin-bottom: 40px; padding-left: 20px; }
+        .info-section .topic-text { display: inline-block; vertical-align: top; max-width: 80%; border-bottom: 1px dotted #000; min-height: 25px;}
+        .dotted-line { border-bottom: 1px dotted #000; display: inline-block; min-width: 150px; min-height: 25px; }
+
+        /* Bottom Grid Box */
+        .submission-box { display: flex; border: 2px solid black; font-size: 16px; line-height: 1.6; }
+        .col { flex: 1; padding: 15px; }
+        .col.left { border-right: 2px solid black; }
+        
+        .blue-title {
+            color: #2A52BE;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 0;
+            text-decoration: underline;
+            margin-bottom: 15px;
+        }
+
+        .submission-box p { margin: 5px 0; min-height: 20px;}
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Assignment Details</h2>
+        
+        <div class="form-group">
+            <label>Department</label>
+            <input type="text" id="in-dept" value="Computer Science and Engineering" oninput="updatePage()">
+        </div>
+        <div class="form-group">
+            <label>Assignment No</label>
+            <input type="text" id="in-assign-no" value="" oninput="updatePage()">
+        </div>
+        <div class="form-group">
+            <label>Topic</label>
+            <textarea id="in-topic" rows="3" oninput="updatePage()"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Submission Date</label>
+            <input type="text" id="in-date" value="" oninput="updatePage()">
+        </div>
+
+        <hr>
+
+        <h3>Submitted TO</h3>
+        <div class="form-group">
+            <label>Teacher's Name</label>
+            <input type="text" id="in-to-name" value="" oninput="updatePage()">
+        </div>
+        <div class="form-group">
+            <label>Designation</label>
+            <select id="in-to-desig" onchange="updatePage()">
+                <option value="">Select Designation</option>
+                <option value="Teacher Assistant">Teacher Assistant</option>
+                <option value="Lecturer">Lecturer</option>
+                <option value="Associate Professor">Associate Professor</option>
+                <option value="Assistant Professor">Assistant Professor</option>
+                <option value="Professor">Professor</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Teacher's Dept</label>
+            <input type="text" id="in-to-dept" value="Department of Computer Science and Engineering" oninput="updatePage()">
+        </div>
+
+        <hr>
+
+        <h3>Submitted BY</h3>
+        <div class="form-group">
+            <label>Student Name</label>
+            <input type="text" id="in-by-name" value="Md. Shahidur Rahman" oninput="updatePage()">
+        </div>
+        <div class="form-group">
+            <label>Roll</label>
+            <input type="text" id="in-by-roll" value="2207103" oninput="updatePage()">
+        </div>
+        <div class="form-group">
+            <label>Year & Semester</label>
+            <input type="text" id="in-by-year" value="3rd" placeholder="Year" style="width: 48%; display: inline-block;" oninput="updatePage()">
+            <input type="text" id="in-by-sem" value="1st" placeholder="Semester" style="width: 48%; display: inline-block;" oninput="updatePage()">
+        </div>
+
+        <button class="print-btn" onclick="generatePDF()">Download as PDF</button>
+    </div>
+
+    <div class="page-container" id="page-container">
+        <div class="header">
+            <span class="black-text">KHULNA UNIVERSITY OF</span><br>
+            <span class="green-text">ENGINEERING & TECHNOLOGY</span>
+        </div>
+
+        <div class="logo-container">
+            <img src="KUET.png" alt="KUET Logo">
+        </div>
+
+        <div class="info-section">
+            <p><strong>Department:</strong> <span class="dotted-line" id="out-dept"></span></p>
+            <p><strong>Assignment no:</strong> <span class="dotted-line" id="out-assign-no"></span></p>
+            <p><strong>Topic:</strong> <span class="topic-text" id="out-topic"></span></p>
+            <p><strong>Submission Date:</strong> <span class="dotted-line" id="out-date"></span></p>
+        </div>
+
+        <div class="submission-box">
+            <div class="col left">
+                <h3 class="blue-title">Submitted TO:</h3>
+                <p id="out-to-name"></p>
+                <p id="out-to-desig"></p>
+                <p id="out-to-dept"></p>
+                <p>Khulna University of<br>Engineering and Technology.</p>
+            </div>
+            <div class="col right">
+                <h3 class="blue-title">Submitted BY:</h3>
+                <p><strong>Name:</strong> <span id="out-by-name"></span></p>
+                <p><strong>Roll:</strong> <span id="out-by-roll"></span></p>
+                <p><strong>Department:</strong> <span id="out-by-dept"></span></p>
+                <p style="margin-top: 15px;">
+                    <strong>Year:</strong> <span id="out-by-year"></span> &nbsp;&nbsp;&nbsp; 
+                    <strong>Semester:</strong> <span id="out-by-sem"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updatePage() {
+            document.getElementById('out-dept').innerText = document.getElementById('in-dept').value;
+            document.getElementById('out-assign-no').innerText = document.getElementById('in-assign-no').value;
+            document.getElementById('out-topic').innerText = document.getElementById('in-topic').value;
+            document.getElementById('out-date').innerText = document.getElementById('in-date').value;
+            
+            document.getElementById('out-to-name').innerText = document.getElementById('in-to-name').value;
+            document.getElementById('out-to-desig').innerText = document.getElementById('in-to-desig').value;
+            
+            let toDept = document.getElementById('in-to-dept').value;
+            document.getElementById('out-to-dept').innerText = toDept ? toDept + "," : "";
+
+            document.getElementById('out-by-name').innerText = document.getElementById('in-by-name').value;
+            document.getElementById('out-by-roll').innerText = document.getElementById('in-by-roll').value;
+            document.getElementById('out-by-dept').innerText = document.getElementById('in-dept').value; 
+            document.getElementById('out-by-year').innerText = document.getElementById('in-by-year').value;
+            document.getElementById('out-by-sem').innerText = document.getElementById('in-by-sem').value;
+        }
+
+        // Initialize empty fields on page load
+        updatePage();
+
+        function generatePDF() {
+            const element = document.getElementById('page-container');
+            
+            // Remove the shadow temporarily so it doesn't show up in the PDF render
+            element.style.boxShadow = 'none';
+
+            // Configure html2pdf settings
+            const opt = {
+                margin:       0,
+                filename:     'KUET_Assignment_Cover_Page.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
+                pagebreak:    { mode: ['avoid-all'] },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Generate and save the PDF, then restore the styling
+            html2pdf().set(opt).from(element).save().then(() => {
+                element.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+            });
+        }
+    </script>
+</body>
+</html>
