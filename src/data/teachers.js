@@ -25,10 +25,10 @@ export const teachersData = [
     { id: 24, name: "Md Mehrab Hossain Opi", ext: "8389", room: "CSE 303", mobile: "01710-655785", email: "opi@cse.kuet.ac.bd" },
     { id: 25, name: "Md Tajmilur Rahman", ext: "8371", room: "CSE 303", mobile: "01781-954062", email: "tajmilur@cse.kuet.ac.bd" },
     { id: 26, name: "Nabil Faiyaz Sadi", ext: "8375", room: "CSE 217", mobile: "01532-175616", email: "nfs@cse.kuet.ac.bd" },
-    { id: 27, name: "Ms. Subah Nawar", ext: "8355", room: "CSE 208", mobile: "01825-556567", email: "nawar@cse.kuet.ac.bd" },
+    { id: 27, name: "Subah Nawar", ext: "8355", room: "CSE 208", mobile: "01825-556567", email: "nawar@cse.kuet.ac.bd" },
     { id: 28, name: "Waliul Islam Sumon", ext: "361", room: "CSE 213", mobile: "01709-186979", email: "waliul@cse.kuet.ac.bd" },
     { id: 29, name: "Mubtasim Abrar Nihal", ext: "-", room: "CSE 213", mobile: "01304-498392", email: "nihal14910@gmail.com" },
-    { id: 30, name: "Mst. Lamisa Bintee Mizan Deya", ext: "-", room: "CSE 205", mobile: "01707-494817", email: "deyalamisa49@gmail.com" },
-    { id: 31, name: "Mst. Sadia Islam", ext: "-", room: "CSE 205", mobile: "01303-855907", email: "islam1907027@stud.kuet.ac.bd" },
+    { id: 30, name: "Lamisa Bintee Mizan Deya", ext: "-", room: "CSE 205", mobile: "01707-494817", email: "deyalamisa49@gmail.com" },
+    { id: 31, name: "Sadia Islam", ext: "-", room: "CSE 205", mobile: "01303-855907", email: "islam1907027@stud.kuet.ac.bd" },
     { id: 32, name: "Ehsanul Karim Talha", ext: "-", room: "CSE 217", mobile: "01521-558848", email: "karim1907039@stud.kuet.ac.bd" }
 ];

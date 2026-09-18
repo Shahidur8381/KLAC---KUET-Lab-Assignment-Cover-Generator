@@ -547,6 +547,200 @@
             background-color: #fff;
             padding: 40px;
             border-radius: 12px;
+        .lab-shell {
+            border: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            background: #ffffff;
+        }
+
+        .lab-heading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2mm;
+            padding-right: 15mm;
+        }
+
+        .lab-heading img {
+            width: 75px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .lab-uni h3 {
+            margin: 0 0 5px 0;
+            font-size: 23px;
+            color: #001242;
+            font-weight: 700;
+        }
+
+        .lab-uni .kuet {
+            margin: 0;
+            font-size: 32px;
+            color: #00a650;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .lab-title-container {
+            text-align: center;
+            margin: 5mm 0 8mm;
+        }
+        
+        .lab-title {
+            display: inline-block;
+            border: 1px solid #00a650;
+            color: #001242;
+            font-size: 26px;
+            font-weight: 700;
+            padding: 3mm 8mm;
+        }
+
+        .lab-center-row {
+            text-align: center;
+            margin-bottom: 8mm;
+        }
+        .lab-center-row span.label {
+            color: #00a650;
+            font-size: 21px;
+            font-weight: 700;
+        }
+        .lab-center-row span.lab-value {
+            color: #001242;
+            font-size: 21px;
+            font-weight: 700;
+            border-bottom: 1px solid #00a650;
+            display: inline-block;
+            min-width: 25mm;
+            padding: 0 1mm;
+        }
+
+        .lab-meta-title {
+            color: #001242;
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 8mm;
+        }
+
+        .lab-meta-row {
+            font-size: 21px;
+            font-weight: 700;
+            color: #001242;
+            margin-bottom: 6mm;
+        }
+
+        .lab-meta-row .label {
+            color: #001242;
+        }
+
+        .lab-value-underlined {
+            color: #000000;
+            border-bottom: 1px solid #001242;
+            display: inline-block;
+            min-width: 40mm;
+            padding: 0 1.5mm;
+        }
+        
+        
+        
+        
+
+        .lab-remarks {
+            margin: 6mm 0;
+            border: 1px solid #00a650;
+            flex: 1;
+            padding: 3.5mm;
+        }
+
+        .lab-remarks .title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #001242;
+        }
+
+        .lab-remarks .content {
+            font-size: 16px;
+            color: #001242;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            margin-top: 5mm;
+        }
+
+                        .lab-footer {
+            margin-top: auto;
+            margin-bottom: 25mm;
+            display: grid;
+            grid-template-columns: minmax(0, 47%) minmax(0, 53%);
+            gap: 2mm;
+        }
+
+        .lab-footer p {
+            margin: 5mm 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: #000000;
+            line-height: 1.4;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: normal;
+        }
+
+        .lab-footer p .label.green {
+            color: #00a650;
+        }
+
+        .lab-footer-val {
+            color: #000000;
+        }
+
+        @media (max-width: 1320px) {
+            .workspace,
+            .workspace.active {
+                grid-template-columns: 1fr;
+            }
+
+            .form-card {
+                max-height: none;
+            }
+
+            .preview-card {
+                padding: 12px;
+            }
+
+            .page {
+                width: 100%;
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 14px;
+            }
+
+            .hero h1 {
+                font-size: 22px;
+            }
+
+            .mode-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CSE Telephone Index Styles */
+        .telephone-index-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             max-width: 1000px;
             margin: 0 auto;
@@ -555,14 +749,104 @@
         .index-title {
             text-align: center;
             color: #1a365d;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-size: 28px;
             border-bottom: 2px solid #e1e8f5;
             padding-bottom: 15px;
         }
 
+        .search-box-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        @media (min-width: 640px) {
+            .search-box-wrapper {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .search-input-container {
+            position: relative;
+            flex: 1;
+            max-width: 550px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            color: #718096;
+            pointer-events: none;
+        }
+
+        .telephone-search-input {
+            width: 100%;
+            padding: 12px 38px 12px 42px;
+            font-size: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.2s ease;
+            background-color: #f8fafc;
+            color: #2d3748;
+        }
+
+        .telephone-search-input:focus {
+            border-color: #3182ce;
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15);
+        }
+
+        .search-clear-btn {
+            position: absolute;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #a0aec0;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.15s ease;
+        }
+
+        .search-clear-btn:hover {
+            color: #e53e3e;
+            background-color: #edf2f7;
+        }
+
+        .search-results-counter {
+            font-size: 14px;
+            color: #4a5568;
+            background-color: #f0f5ff;
+            border: 1px solid #dce6f9;
+            padding: 6px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+            align-self: flex-start;
+        }
+
+        @media (min-width: 640px) {
+            .search-results-counter {
+                align-self: center;
+            }
+        }
+
+        .search-results-counter strong {
+            color: #2b6cb0;
+        }
+
         .table-responsive {
             overflow-x: auto;
+            margin-top: 20px;
         }
 
         .telephone-table {
@@ -590,6 +874,89 @@
 
         .telephone-table tr:hover {
             background-color: #f0f5ff;
+        }
+
+        /* Phone & Email interactive links */
+        .tel-link, .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .tel-link {
+            color: #2b6cb0;
+            background-color: rgba(43, 108, 176, 0.08);
+        }
+
+        .tel-link:hover {
+            color: #1a365d;
+            background-color: rgba(43, 108, 176, 0.18);
+            transform: translateY(-1px);
+        }
+
+        .tel-icon {
+            color: #3182ce;
+            flex-shrink: 0;
+        }
+
+        .email-link {
+            color: #2c5282;
+        }
+
+        .email-link:hover {
+            color: #1a365d;
+            text-decoration: underline;
+        }
+
+        .email-icon {
+            color: #718096;
+            flex-shrink: 0;
+        }
+
+        .text-muted {
+            color: #a0aec0;
+        }
+
+        /* Empty state styling */
+        .no-results-cell {
+            padding: 40px 20px !important;
+            text-align: center;
+            background-color: #fff !important;
+        }
+
+        .no-results-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .no-results-text {
+            color: #4a5568;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .clear-search-action-btn {
+            background-color: #3182ce;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .clear-search-action-btn:hover {
+            background-color: #2b6cb0;
         }
 
 
