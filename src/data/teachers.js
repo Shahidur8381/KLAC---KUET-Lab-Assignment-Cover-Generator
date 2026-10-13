@@ -31,5 +31,5 @@ export const teachersData = [
     { id: 30, name: "Lamisa Bintee Mizan Deya", ext: "-", room: "CSE 205", mobile: "01707-494817", email: "deyalamisa49@gmail.com" },
     { id: 31, name: "Sadia Islam", ext: "-", room: "CSE 205", mobile: "01303-855907", email: "islam1907027@stud.kuet.ac.bd" },
     { id: 32, name: "Ehsanul Karim Talha", ext: "-", room: "CSE 217", mobile: "01521-558848", email: "karim1907039@stud.kuet.ac.bd" },
-    { id: 32, name: "Dr. Md. Abdul Awal", ext: "-", room: "Unknown", mobile: "01815940362", email: "awal@cse.kuet.ac.bd" }
+    { id: 33, name: "Dr. Md. Abdul Awal", ext: "-", room: "Unknown", mobile: "01815940362", email: "awal@cse.kuet.ac.bd" }
 ];
