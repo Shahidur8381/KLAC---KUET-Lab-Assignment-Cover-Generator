@@ -32,7 +32,7 @@ export default function ProjectPreview({ data }) {
                         </div>
                         <p style={{ marginTop: '20px' }}>
                             {data.teacherDept ? data.teacherDept + ',' : ''}
-                            <br/>Khulna University of<br/>Engineering and Technology.
+                            <br/>Khulna University of<br/>Engineering & Technology.
                         </p>
                     </div>
                     <div className="submission-col">
